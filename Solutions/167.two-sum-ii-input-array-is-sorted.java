@@ -25,6 +25,3 @@ class Solution {
     }
 }
 // @lc code=end
-
-// [1, 2, 3, 7, 8, 10]
-// 15
