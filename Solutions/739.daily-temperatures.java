@@ -14,7 +14,7 @@ class Solution {
         int[] answer = new int[temperatures.length];
 
         Stack<Integer> stack = new Stack<>();
-        int i = 1, temp = 1;
+        int i = 1, j = 1, temp = 1;
         for(int element : temperatures){
             if(!stack.empty()){
                 if(element <= stack.peek()){
@@ -25,11 +25,18 @@ class Solution {
                 while(!stack.empty() && element > stack.peek()){
                     i--;
                     answer[i] = temp;
+                    j++;
                     temp++;
                     stack.pop();
                 }
+                if(!stack.empty()){
+                    temp = j;
+                }
+                else{
+                    temp = 1;
+                }
                 stack.push(element);
-                temp = 1;
+                j = 1;
                 i += 2;
             }
             else{
